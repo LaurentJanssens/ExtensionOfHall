@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -28,15 +29,19 @@ import java.util.Set;
 			return values.contains(element);
 		}
 		
-		public Set<T> values() {
-			return values;
+		public int size() {
+			return values.size();
+		}
+		
+		public Iterator<T> values() {
+			return values.iterator();
 		}
 		
 		private final Set<T> values = new HashSet<T>();
 		
 		public String toString() {
 			String result = "{";
-				for(T i : values())
+				for(T i : values)
 					result += i + ", ";
 				return result.substring(0, result.lastIndexOf(',')) + "}";
 		}
